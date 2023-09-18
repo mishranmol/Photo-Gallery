@@ -1,0 +1,87 @@
+/* universal selector  */
+*{
+    padding: 0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+#wrapper{
+    /* wrapper height is = to the height of the view port */
+    height: 100vh;
+    /* movement in the x-axis is not allowed  */
+    overflow-x:hidden;
+    /* we have to scroll in the direction of y-axis */
+    overflow-y: auto;
+}
+
+.container {
+    height: 100%;
+    width: 1200px;
+    /* means the left side and right side se margin aise lagate hai ki hamara content centre mai aaye  */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display:flex;
+    /* we make use of this kuki saare elements centre mai toh aajyaenge pr x-axis s bahar nikal jayenge toh flex:wrap krne se agr saare elements row mai ni aapayenge to fir vo ek k neeche ek apne aap ko order ke lenge*/
+   flex-wrap:wrap;
+   justify-content: center;
+   align-items: center;
+   justify-content: space-evenly;
+   margin-top: 15px;
+}
+
+.card{
+    width:32% ;
+    /* DBO */
+    overflow: hidden;
+    /* overlap karane k liye nearest parent anchestor ko position relative rakhte hai */
+    position: relative;
+    border-radius: 5px;    
+}
+
+.card img{
+ 
+    /* it means ki image k parent ki jitni width hai utni hi width iski bhi ho jaye gi */
+    width: 100%;
+    height: 100%;
+    /* this is how our image can become black and white  */
+    filter: grayscale(1);
+/* we make use of this jisse hmari jo image vo poore uss area ko fill kregi jisme vo image hai  */
+    object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    /* this is how we can slow down the hover time */
+    transition: 1s;
+    /* this is how we apply shadow seen fron mdn   */
+    filter: drop-shadow(3px 3px 3px black);
+}
+
+.card img:hover{
+    /* color gets back to normal */
+    filter: grayscale(0);
+}
+
+.card figcaption{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    height: 20%;
+}
+
+.card figcaption:hover{
+    transform: scale(1);
+}
